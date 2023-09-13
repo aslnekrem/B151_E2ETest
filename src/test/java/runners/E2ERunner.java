@@ -6,13 +6,19 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources",
+        features = {
+                "src/test/resources/endtoend_features/TC01_AdminOdaOlusturur.feature",
+                "src/test/resources/endtoend_features/TC02_ApiRoom.feature",
+                "src/test/resources/endtoend_features/TC03_DataBaseRoom.feature"
+        }, //Burada feature'leri sirayla calistirmayi yapiyoruz. Copy path content root yaparak feature'lere.  tag'i da sildik unutma.
         glue = {"stepdefinitions","hooks"},//Olusturdugumuz Hooks classini glue kisminda tanimlamamiz gerekir
-        tags = "@e2e",
         dryRun = false
 )
-
-public class Runner {
+//ui - api - db
+//api - ui - db
+//db - ui - api
+//Yukaridakilerin hepsi E2E test örnekleri
+public class E2ERunner {
 /*
 25/08/2023
 Bugün ne yaptik

@@ -6,12 +6,13 @@ import org.openqa.selenium.support.ui.Select;
 import pages.MedunnaHomePage;
 import pages.MedunnaRoomPage;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class MedunnaRoomStepDefs {
     MedunnaHomePage medunnaHomePage = new MedunnaHomePage();
     MedunnaRoomPage medunnaRoomPage = new MedunnaRoomPage();
     public static int odaNo;
-
+    public static String odaId;
     @When("Items&Titles secenegine tiklanir")
     public void ıtems_titles_secenegine_tiklanir() {
         medunnaHomePage.itemsdAndTitles.click();
@@ -55,7 +56,13 @@ public class MedunnaRoomStepDefs {
 
     @When("Save butonuna tiklanir")
     public void save_butonuna_tiklanir() throws InterruptedException {
-        medunnaRoomPage.saveSubmitButton.click();
+        ReusableMethods.click(medunnaRoomPage.saveSubmitButton);
+        ReusableMethods.visibleWait(medunnaRoomPage.alert,1);
+        odaId = medunnaRoomPage.alert.getText().replaceAll("[^0-9]","");
+        System.out.println(odaId);
+        //alert gibi cikan A new Room is created with identifier 73051 yazi alert olarak locate'ini aldik
+        //ve bu bir text gibi. Bu text'in id numarasi dahil tamami getText() ile alinacak ve replaceAll()
+        //metodu ile sayilar disindaki herseyi hiclik olarak degistirince id numarasini alacagiz
     }
 
     @When("Uygulama kapatilir")
