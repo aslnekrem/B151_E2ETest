@@ -8,6 +8,7 @@ public class Hooks {
 
 
     
+    
     @Before //Bu anotasyonu Cucumber'dan import etmeyi unutma. (Cünkü bu proje Cucumber projesi)
     public void beforeApi(){
         setup(); /*
