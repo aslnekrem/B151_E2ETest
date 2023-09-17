@@ -6,7 +6,7 @@ import static base_url.MedunnaBaseUrl.setup;
 
 public class Hooks {
 
-    
+
     
     
     @Before //Bu anotasyonu Cucumber'dan import etmeyi unutma. (Cünkü bu proje Cucumber projesi)
